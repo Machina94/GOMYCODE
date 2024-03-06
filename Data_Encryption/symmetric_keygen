@@ -1,0 +1,22 @@
+from cryptography.fernet import Fernet
+
+def generate_and_save_symmetric_key(file_path):
+    """
+    Generate a symmetric key using Fernet encryption and save it to a file.
+
+    Args:
+    - file_path: Path to save the symmetric key file.
+    """
+    symmetric_key = Fernet.generate_key()
+    
+    with open(file_path, "wb") as key_file:
+        key_file.write(symmetric_key)
+
+if __name__ == "__main__":
+    # Input the path to save the symmetric key file
+    key_file_path = input("Enter the path to save the symmetric key file: ")
+
+    # Generate and save the symmetric key
+    generate_and_save_symmetric_key(key_file_path)
+
+    print("Symmetric key saved successfully to:", key_file_path)
